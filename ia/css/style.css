@@ -5,8 +5,8 @@ html {
   
   
   h1 {
-    font-size: 60px;
-    text-align: center;
+    font-size: 2em;
+    color: rgb(80, 40, 120);
   }
   
   p, li {
@@ -35,6 +35,9 @@ html {
     text-shadow: 3px 3px 1px black;
   }
   
+  img.lado {
+      float: right;
+  }
   img {
     display: block;
     margin: 0 auto;
