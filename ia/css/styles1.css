@@ -10,7 +10,7 @@ body {
 
 main {
     background-color: rgb(235, 243, 245);
-    width: 560px;
+    width: 50%;
     margin: auto;
     padding: 10px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.473);
