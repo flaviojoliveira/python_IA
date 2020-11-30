@@ -1,0 +1,61 @@
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+import cv2
+import numpy as np
+from mtcnn.mtcnn import MTCNN
+from pathlib import Path
+
+detector = MTCNN()
+model = load_model(Path("Insira o caminho do detector.h5"))
+cap = cv2.VideoCapture("Insira seu vídeo aqui")
+size = (160,160)
+
+while True:
+
+    ret, frame = cap.read()
+    labels = []
+    faces = detector.detect_faces(frame)
+
+    people = 0
+
+    for face in faces:
+
+        x1, y1, w, h = face['box']
+
+        x2, y2 = x1 + w, y1 + h
+
+        roi = frame[y1:y2, x1:x2]
+
+        roi = cv2.resize(roi,size)
+
+        if np.sum([roi])!=0:
+            roi = (roi.astype('float')/255.0)
+
+            pred = model.predict([[roi]])
+
+            pred = pred[0]
+
+            if pred[0] >= pred[1]:
+                label = 'SEM MASCARA'
+                color = (0,0,255)
+                people = people + 1
+            else:
+                label = 'MASCARA'
+                color = (0,255,0)
+            label_position = (x1, y1)
+            cv2.rectangle(frame, (x1, y1), (x2, y2), color, 2)
+            cv2.putText(frame,label, label_position, cv2.FONT_HERSHEY_SIMPLEX,.6,color,2)
+
+        else:
+            cv2.putText(frame,'Nenhum rosto encontrado',(20,60),cv2.FONT_HERSHEY_SIMPLEX,2,(0,255,0),2)
+
+    cv2.putText(frame, "Sem Mascara : " + str(people), (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+
+    cv2.imshow('Detector de Máscaras', frame)
+
+    key = cv2.waitKey(1)
+    if key == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
