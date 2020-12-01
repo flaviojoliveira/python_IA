@@ -1,41 +1,44 @@
-# Deep Learning - Detectando Faces em Videos
+# Assistente Virtual
 
-##### Colaboradores: [Daniel Queiroz](https://github.com/DanielSQueiroz) e [Rafael Buchacra](https://github.com/rafael-buchacra)
+Nesse projeto, nós criamos uma assistente virtual utilizando a linguagem de programação [Python](https://www.python.org/) e algumas bibliotecas para a que seja possível a realização de algumas tarefas utilizando Reconhecimento de Fala.
 
-## Atividade Avaliativa
-
-1. Resquisitos
-2. Aplicação
-3. Exemplo
-
-### 1. Requisitos
+## Requisitos
 
  - Python 3+
- - Ananconda 3+
+ - Microfone
 
-    ##### Preparando o Ambiente
-    Após a instalação do **python** e do **anaconda** é preciso rodar os seguintes codigos no anaconda prompt.
-    
-    ![Anaconda Prompt Windows](https://i.imgur.com/aYMQdrx.png)
-    
-    E execute o seguinte codigo:
-    
-    ```conda create -n image-detection anaconda```
-    
-    Após a conclusão do processo execute o proximo comando:
-    
-    ```conda activate image-detection```
-    
-    E em seguida instale o OpenCV:
-    
-    ```conda install opencv```
-    
+## Instalação
 
-### 2. Aplicação
+Utilizando um terminal, instale as seguintes bibliotecas utilizando o pip:
 
-##### Execução
-Após concluir a instalação dos requisitos, é necessario usar o ipython para conseguir utilizar o codigo. No proprio console do Anaconda entre no diretorio onde esta localizado o arquivo e digite o seguinte codigo: `ipython detface.py`.
+```pip3 install SpeechRecogniton```
 
-### 3. Exemplo: 
-![Gif de Exemplo](https://media.giphy.com/media/1s2dz6G41WDRgbPhYE/giphy.gif)
- 
+```pip3 install PyAudio```
+
+```pip3 install pyttsx3```
+
+Caso esteja utilizando Linux e dê o seguinte erro: 
+
+`libespeak.so.1: cannot open shared object file: No such file or directory`
+
+instale o seguinte pacote: 
+
+ - Arch linux e derivados:
+
+    ```sudo pacman -S espeak```
+
+ - Ubuntu e derivados:
+
+    ```sudo apt-get install espeak```
+
+## Execução
+
+Após a instalação das dependecias utilizando o terminal entre na pasta aonde está localizada os arquivos e execute o seguinte comando:
+
+```python main.py```
+
+## Exemplo:
+
+[Video](https://youtu.be/RnoQmsoNB9Q)
+
+
