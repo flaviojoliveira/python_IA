@@ -1,0 +1,34 @@
+GorjetaBaixa = 0.05;
+GorjetaMedia = 0.10;
+GorjetaAlta = 0.15;
+IntervaloGorjeta = GorjetaAlta - GorjetaBaixa;
+
+ServicoPessimo = 0;
+ServicoRuim = 2.5;
+ServicoMedio = 5;
+ServicoBom = 7.5;
+ServicoExcelente = 10;
+IntervaloServico = ServicoExcelente - ServicoRuim;
+
+ComidaPessima = 0;
+ComidaRuim = 2.5;
+ComidaMedia = 5;
+ComidaBoa = 7.5;
+ComidaExcelente = 10;
+IntervaloComida = ComidaExcelente - ComidaRuim;
+
+Comida = input("Insira a qualidade da comida");
+Servico = input("Insira a qualidade do servico");
+
+if Servico < ServicoBom
+	Gorjeta=(((GorjetaMedia/GorjetaBaixa) / (ServicoRuim - ServicoPessimo)) *Servico+GorjetaBaixa) * IntervaloServico + (1-IntervaloServico) * (IntervalodeGorjeta*Comida+GorjetaBaixa);
+
+elseif Servico < ServicoRuim
+	Gorjeta = GorjetaMedia * IntervaloServico + (1-IntervaloServico) * (IntervaloGorjeta / IntervaloComida * Comida+Gorjeta);
+	printf("Gorjeta=%d", GorjetaBaixa);
+
+else
+	Gorjeta = (((GorjetaAlta*GorjetaMedia)/(ServicoExcelente - ServicoBom))*(Servico-ServicoBom)+ GorjetaMedia*IntervaloServico+IntervaloComida*Comida+GorjetaBaixa);
+	printf("Gorjeta= %d", Gorjeta);
+
+end
