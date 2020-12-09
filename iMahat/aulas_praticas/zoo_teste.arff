@@ -1,0 +1,26 @@
+@RELATION zoo
+
+@ATTRIBUTE animal {dog,cat,anemone}
+
+@ATTRIBUTE hair {false, true}
+@ATTRIBUTE feathers {false, true}
+@ATTRIBUTE eggs {false, true}
+@ATTRIBUTE milk {false, true}
+@ATTRIBUTE airborne {false, true}
+@ATTRIBUTE aquatic {false, true}
+@ATTRIBUTE predator {false, true}
+@ATTRIBUTE toothed {false, true}
+@ATTRIBUTE backbone {false, true}
+@ATTRIBUTE breathes {false, true}
+@ATTRIBUTE venomous {false, true}
+@ATTRIBUTE fins {false, true}
+@ATTRIBUTE legs INTEGER [0,9]
+@ATTRIBUTE tail {false, true}
+@ATTRIBUTE domestic {false, true}
+@ATTRIBUTE catsize {false, true}
+@ATTRIBUTE type { mammal, bird, reptile, fish, amphibian, insect, invertebrate }
+
+@DATA
+dog,true,false,false,true,false,false,true,true,true,true,false,false,4,true,true,true,mammal
+cat,true,false,false,true,false,false,true,true,true,true,false,false,4,true,true,true,mammal
+anemone,false,false,false,false,false,true,false,false,false,true,false,false,0,false,false,false,fish
